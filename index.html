@@ -1173,12 +1173,93 @@ svg:hover .arc:not(:hover){opacity:.4}
 
     <div class="s91"><b>91.4%</b><span>전입 불가 매물 중 91.4%가 보증금 1,000만원 이하다.<br>보증금이 적은 세입자일수록 이 조건을 만나기 쉽다</span></div>
 
+    <style>
+    .dq{max-width:640px;margin:14px auto 0;padding:8px 0 0;font-family:'Pretendard',system-ui,sans-serif;text-align:center}
+    .dq-plot{position:relative;height:260px;margin:28px 0 0 38px}
+    .dq-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;clip-path:inset(-20px -20px -20px -20px);transition:clip-path 1.1s cubic-bezier(.2,.8,.2,1) .2s}
+    .rv:not(.in) .dq-svg{clip-path:inset(-20px 100% -20px -20px)}
+    .dq-svg *{vector-effect:non-scaling-stroke}
+    .dq-g{stroke:rgba(255,255,255,.08);stroke-width:1;fill:none}
+    .dq-s{stroke:rgba(255,255,255,.2);stroke-width:1;stroke-dasharray:2 3;fill:none}
+    .dq-base{stroke:rgba(255,255,255,.22);stroke-width:1;fill:none}
+    .dq-guide{stroke:#D9A05B;stroke-width:1;stroke-dasharray:4 4;fill:none;opacity:.85}
+    .dq-fill{fill:rgba(217,160,91,.3);stroke:none}
+    .dq-on{stroke:#D9A05B;stroke-width:3;fill:none;stroke-linejoin:round;stroke-linecap:round}
+    .dq-off{stroke:#8D97B8;stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+    .dq-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:#D9A05B;box-shadow:0 0 0 2px #172343;transform:translate(-50%,-50%);transition:opacity .5s ease;transition-delay:var(--d,.6s)}
+    .dq-dot.big{width:14px;height:14px}
+    .dq-dot.off{background:#8D97B8}
+    .rv:not(.in) .dq-dot,.rv:not(.in) .dq-pv,.rv:not(.in) .dq-hero{opacity:0}
+    .dq-pv{position:absolute;font:600 12px/1 'Pretendard',system-ui,sans-serif;color:#b8b1a4;white-space:nowrap;transform:translate(calc(-100% - 9px),calc(-100% - 4px));transition:opacity .5s ease;transition-delay:var(--d,.6s)}
+    .dq-pv.up{transform:translate(-50%,calc(-100% - 10px));color:#9a9285}
+    .dq-pv.end{transform:translate(-100%,calc(-100% - 10px));color:#9a9285}
+    .dq-y{position:absolute;left:-38px;width:32px;text-align:right;font-size:12px;line-height:1;color:#9a9285;transform:translateY(-50%)}
+    .dq-hero{position:absolute;left:68%;top:30%;text-align:left;pointer-events:none;transition:opacity .6s ease .6s}
+    .dq-hero b{display:block;font:600 clamp(40px,5vw,56px)/1 'Paperlogy',sans-serif;color:#D9A05B}
+    .dq-hero span{display:block;margin-top:8px;font-size:14px;line-height:1.4;color:#ece7de}
+    .dq-hero span+span{margin-top:2px;font-size:13px;color:#9a9285}
+    .dq-cols{position:relative;height:50px;margin:10px 0 0 38px}
+    .dq-c{position:absolute;top:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+    .dq-l{font-size:12px;line-height:1.4;color:#b8b1a4;word-break:keep-all}
+    .dq-v{margin-top:4px;font:600 15px/1 'Pretendard',system-ui,sans-serif;color:#ece7de}
+    .dq-n{margin-top:14px;text-align:center;font-size:12.5px;line-height:1.6;color:#9a9285}
+    @media(max-width:560px){
+    .dq-plot{height:220px}
+    .dq-cols{height:62px}
+    .dq-l{font-size:11px;min-height:31px;display:flex;align-items:flex-end;justify-content:center}
+    .dq-v{font-size:12.5px}
+    .dq-pv{font-size:11px}
+    .dq-pv.up{transform:translate(calc(-100% - 6px),calc(-100% - 8px))}
+    .dq-hero{left:67%;top:26%}
+    .dq-hero b{font-size:28px}
+    .dq-hero span{font-size:12px;margin-top:6px}
+    .dq-hero span+span{display:none}
+    }
+    @media(prefers-reduced-motion:reduce){
+    .dq-svg,.dq-dot,.dq-pv,.dq-hero{transition:none}
+    }
+    </style>
+    
     <div class="cap" style="margin-top:44px">그림 8. 전입 불가 매물의 보증금 분포</div>
-    <div class="dp">
-      <div class="dp-bracket"><span>보증금 1,000만원 이하 <b>91.4%</b></span></div>
-      <div class="dp-row"><div class="dp-c on"><b class="dp-v">20.6%</b><div class="dp-t"><i style="height:76%"></i></div><span class="dp-l">100만원 이하</span></div><div class="dp-c on"><b class="dp-v">26.8%</b><div class="dp-t"><i style="height:99%"></i></div><span class="dp-l">100~300만원</span></div><div class="dp-c on"><b class="dp-v">27.2%</b><div class="dp-t"><i style="height:100%"></i></div><span class="dp-l">300~500만원</span></div><div class="dp-c on"><b class="dp-v">16.9%</b><div class="dp-t"><i style="height:62%"></i></div><span class="dp-l">500~1,000만원</span></div><div class="dp-c "><b class="dp-v">7.1%</b><div class="dp-t"><i style="height:26%"></i></div><span class="dp-l">1,000~3,000만원</span></div><div class="dp-c "><b class="dp-v">1.5%</b><div class="dp-t"><i style="height:6%"></i></div><span class="dp-l">3,000만원 초과</span></div></div>
-      <div class="dp-n">단위: % · 전입 불가 월세 매물 2,897건 중 보증금 구간별 비율</div>
-    </div>
+    <figure class="dq" style="margin-block:14px 0;margin-inline:auto" role="img" aria-label="전입 불가 월세 매물 2,897건의 보증금 누적 비율. 100만원 이하 20.6%, 300만원 이하 47.4%, 500만원 이하 74.6%, 1,000만원 이하 91.4%, 3,000만원 이하 98.5%, 그 이상 100%. 구간별 비율은 100만원 이하 20.6%, 100~300만원 26.8%, 300~500만원 27.2%, 500~1,000만원 16.9%, 1,000~3,000만원 7.1%, 3,000만원 초과 1.5%.">
+      <div class="dq-plot" aria-hidden="true">
+        <svg class="dq-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path class="dq-g" d="M0 0H100M0 25H100M0 50H100M0 75H100"/>
+          <path class="dq-base" d="M0 100H100"/>
+          <path class="dq-s" d="M15.051 79.4V100M38.908 52.6V100M50 25.4V100M88.908 1.5V100"/>
+          <polygon class="dq-fill" points="0,100 15.051,79.4 38.908,52.6 50,25.4 65.051,8.6 65.051,100"/>
+          <path class="dq-guide" d="M0 8.6H65.051M65.051 8.6V100"/>
+          <polyline class="dq-on" points="0,100 15.051,79.4 38.908,52.6 50,25.4 65.051,8.6"/>
+          <polyline class="dq-off" points="65.051,8.6 88.908,1.5 100,0"/>
+        </svg>
+        <span class="dq-y" style="top:100%">0%</span>
+        <span class="dq-y" style="top:75%">25%</span>
+        <span class="dq-y" style="top:50%">50%</span>
+        <span class="dq-y" style="top:25%">75%</span>
+        <span class="dq-y" style="top:0%">100%</span>
+        <i class="dq-dot" style="left:15.051%;top:79.4%;--d:.5s"></i>
+        <i class="dq-dot" style="left:38.908%;top:52.6%;--d:.7s"></i>
+        <i class="dq-dot" style="left:50%;top:25.4%;--d:.9s"></i>
+        <i class="dq-dot big" style="left:65.051%;top:8.6%;--d:1.1s"></i>
+        <i class="dq-dot off" style="left:88.908%;top:1.5%;--d:1.2s"></i>
+        <i class="dq-dot off" style="left:100%;top:0%;--d:1.3s"></i>
+        <b class="dq-pv" style="left:15.051%;top:79.4%;--d:.5s">20.6%</b>
+        <b class="dq-pv" style="left:38.908%;top:52.6%;--d:.7s">47.4%</b>
+        <b class="dq-pv" style="left:50%;top:25.4%;--d:.9s">74.6%</b>
+        <b class="dq-pv up" style="left:88.908%;top:1.5%;--d:1.2s">98.5%</b>
+        <b class="dq-pv end" style="left:100%;top:0%;--d:1.3s">100%</b>
+        <div class="dq-hero"><b>91.4%</b><span>보증금 1,000만원 이하</span><span>나머지 8.6%만 1,000만원 초과</span></div>
+      </div>
+      <div class="dq-cols" aria-hidden="true">
+        <div class="dq-c" style="left:0;width:15.051%"><span class="dq-l">100<wbr> 이하</span><b class="dq-v">20.6%</b></div>
+        <div class="dq-c" style="left:15.051%;width:23.857%"><span class="dq-l">100~300</span><b class="dq-v">26.8%</b></div>
+        <div class="dq-c" style="left:38.908%;width:11.092%"><span class="dq-l">300~<wbr>500</span><b class="dq-v">27.2%</b></div>
+        <div class="dq-c" style="left:50%;width:15.051%"><span class="dq-l">500~<wbr>1,000</span><b class="dq-v">16.9%</b></div>
+        <div class="dq-c" style="left:65.051%;width:23.857%"><span class="dq-l">1,000~<wbr>3,000</span><b class="dq-v">7.1%</b></div>
+        <div class="dq-c" style="left:88.908%;width:11.092%"><span class="dq-l">초과</span><b class="dq-v">1.5%</b></div>
+      </div>
+      <div class="dq-n">보증금 구간 (만원, 로그 눈금) · 위: 누적 비율, 아래: 구간별 비중 · 전입 불가 월세 매물 2,897건 기준</div>
+    </figure>
   </div>
 </section>
 
